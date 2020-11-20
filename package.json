@@ -9,7 +9,7 @@
     "build": "webpack --mode production"
   },
   "keywords": [],
-  "author": "Vladilen Minin <angara99@gmail.com>",
+  "author": "Vladimir Vostrikov <angara99@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^3.4.2",
