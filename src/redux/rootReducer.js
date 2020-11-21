@@ -12,12 +12,13 @@ function counterReducer(state = 0, action) {
   return state
 }
 
-const defaultTheme = {
-  value: 'light'
+const isDark = {
+  value: false
 }
-function themeReducer(state = defaultTheme, action) {
+function themeReducer(state = isDark, action) {
   if (action.type === CHANGE_THEME) {
-    return !state
+    state.value = !state.value
+    return { ...state, value: state.value }
   }
   return state
 }

@@ -29,7 +29,7 @@ function myLogger(state) {
   }
 }
 
-const store = createStore(rootReducer, applyMiddleware(thunk, logger))
+const store = createStore(rootReducer, applyMiddleware(thunk))
 window.store = store
 addBtn.addEventListener('click', () => {
   store.dispatch(increment())
@@ -47,12 +47,13 @@ asyncBtn.addEventListener('click', async () => {
 store.subscribe(() => {
   const state = store.getState()
   counter.textContent = state.counter
+  console.log(state.theme.value)
+  state.theme.value
+    ? (document.body.className = 'dark')
+    : (document.body.className = 'light')
 })
 store.dispatch({ type: 'INIT_APPLICATION' })
 
 themeBtn.addEventListener('click', () => {
-  const isDark = store.dispatch(changeTheme())
-  isDark
-    ? document.body.classList.toggle('dark')
-    : document.body.classList.toggle('dark')
+  store.dispatch(changeTheme())
 })
