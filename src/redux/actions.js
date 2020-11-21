@@ -18,3 +18,9 @@ export function asyncIncrement() {
     }, 2000)
   }
 }
+
+export function changeTheme() {
+  return {
+    type: types.CHANGE_THEME
+  }
+}
